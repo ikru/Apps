@@ -1,0 +1,12 @@
+Create a simple .net core (2.X) web api project that has the following endpoints.
+GET /api/products | returns all products from the given product.json file
+GET /api/products/{int:id} | returns the product with the given id, returns 404 if the id is not found
+
+Create a Cart controller to simulate adding items to a cart, and create the following endpoints
+POST /api/cart | which creates a cart in memory and takes product ids in the body, and persist between calls. 
+GET /api/cart | returns all carts stored in memory, the cart object should also return a cartTotal as the sum of all products in the cart.
+
+please create a repository class to handle any kind of interaction with the json file
+please create a service class which depends on the repository class, using dependancy injection, and handles all logic
+
+a visual studio solution is provided for your convenience in the /src folder

@@ -1,0 +1,9 @@
+/build/
+*.suo
+*.user
+bin/
+obj/
+Debug/
+Release/
+.vs
+.DS_Store
