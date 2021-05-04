@@ -1,0 +1,14 @@
+# docker-compose run func-deploy
+# docker-compose up -d func-debug
+version: '3.8'
+services:
+  func-debug:
+    build: 
+      context: .
+      target: func-debug
+    container_name: func-debug
+    volumes:
+      - ./:/azfunc    
+    ports:
+      - "7081:7081"
+    tty: true
