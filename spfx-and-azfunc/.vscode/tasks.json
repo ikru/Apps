@@ -1,69 +1,44 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "clean",
-      "command": "dotnet",
-      "args": [
-        "clean",
-        "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary"
-      ],
-      "type": "process",
-      "problemMatcher": "$msCompile"
-    },
-    {
-      "label": "build",
-      "command": "dotnet",
-      "args": [
-        "build",
-        "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary"
-      ],
-      "type": "process",
-      "dependsOn": "clean",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": "$msCompile"
-    },
-    {
-      "label": "clean release",
-      "command": "dotnet",
-      "args": [
-        "clean",
-        "--configuration",
-        "Release",
-        "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary"
-      ],
-      "type": "process",
-      "problemMatcher": "$msCompile"
-    },
-    {
-      "label": "publish",
-      "command": "dotnet",
-      "args": [
-        "publish",
-        "--configuration",
-        "Release",
-        "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary"
-      ],
-      "type": "process",
-      "dependsOn": "clean release",
-      "problemMatcher": "$msCompile"
-    },
-    {
-      "type": "func",
-      "dependsOn": "build",
-      "options": {
-        "cwd": "${workspaceFolder}/bin/Debug/netcoreapp3.1"
-      },
-      "command": "host start",
-      "isBackground": true,
-      "problemMatcher": "$func-dotnet-watch"
-    }
-  ]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "docker-compose-up",
+            "type": "shell",
+            "command": "docker-compose up --build",
+            "problemMatcher": []
+        },
+        {
+            "label": "docker-compose-down",
+            "type": "shell",
+            "command": "docker-compose down",
+            "problemMatcher": []
+        },
+        {
+            "label": "build-azfunc",
+            "type": "shell",
+            "command": "./azfunc/scripts/func-build.sh",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch-azfunc",
+            "type": "shell",
+            "command": "./azfunc/scripts/func-watch.sh",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "call-azfunc",
+            "type": "shell",
+            "command": "curl http://localhost:7081/api/HttpTrigger",
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "deploy-azfunc",
+            "type": "shell",
+            "command": "./azfunc/scripts/func-deploy.sh",
+            "problemMatcher": "$msCompile"
+        }
+    ]
 }
