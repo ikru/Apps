@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker-compose exec "spfx-debug" bash -c "gulp serve --nobrowser"
+docker-compose exec "spfx-debug" bash -c "gulp trust-dev-cert && gulp serve --nobrowser"
