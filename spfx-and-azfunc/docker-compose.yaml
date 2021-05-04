@@ -8,7 +8,18 @@ services:
       target: func-debug
     container_name: func-debug
     volumes:
-      - ./:/azfunc    
+      - ./:/app    
     ports:
       - "7081:7081"
+    tty: true
+  spfx-debug:
+    build: 
+      context: .
+      target: spfx-debug
+    container_name: spfx-debug
+    volumes:
+      - ./:/app    
+    ports:
+      - "4321:4321"
+      - "5432:5432"
     tty: true

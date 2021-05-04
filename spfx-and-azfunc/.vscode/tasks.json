@@ -16,13 +16,13 @@
         {
             "label": "build-azfunc",
             "type": "shell",
-            "command": "./azfunc/scripts/func-build.sh",
+            "command": "./scripts/func-build.sh",
             "problemMatcher": "$msCompile"
         },
         {
             "label": "watch-azfunc",
             "type": "shell",
-            "command": "./azfunc/scripts/func-watch.sh",
+            "command": "./scripts/func-watch.sh",
             "problemMatcher": "$msCompile"
         },
         {
@@ -37,7 +37,7 @@
         {
             "label": "deploy-azfunc",
             "type": "shell",
-            "command": "./azfunc/scripts/func-deploy.sh",
+            "command": "./scripts/func-deploy.sh",
             "problemMatcher": "$msCompile"
         }
     ]

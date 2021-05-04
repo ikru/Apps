@@ -5,35 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Chatbot Docker Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickRemoteProcess}",
-            "sourceFileMap": {
-                "/app": "${workspaceRoot}/BiBiBOT"
-            },
-            "pipeTransport": {
-                "pipeProgram": "docker",
-                "pipeArgs": [ "exec", "-i", "bibi" ],
-                "debuggerPath": "/vsdbg/vsdbg",
-                "pipeCwd": "${workspaceRoot}/BiBiBOT",
-                "quoteArgs": false
-            },
-            "justMyCode": false
-        },
-        {
             "name": "Az Function Docker Attach",
             "type": "coreclr",
             "request": "attach",
             "processId": "${command:pickRemoteProcess}",
             "sourceFileMap": {
-                "/AzureFunction": "${workspaceRoot}/AzureFunction"
+                "/azfunc": "${workspaceRoot}"
             },
             "pipeTransport": {
                 "pipeProgram": "docker",
                 "pipeArgs": [ "exec", "-i", "func-debug" ],
                 "debuggerPath": "/vsdbg/vsdbg",
-                "pipeCwd": "${workspaceRoot}/AzureFunction",
+                "pipeCwd": "${workspaceRoot}",
                 "quoteArgs": false
             },
             "justMyCode": true
