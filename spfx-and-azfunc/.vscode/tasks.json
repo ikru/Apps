@@ -2,9 +2,15 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "docker-compose-up",
+            "label": "docker-compose-up-spfx",
             "type": "shell",
-            "command": "docker-compose up --build",
+            "command": "docker-compose up --build -d spfx-debug",
+            "problemMatcher": []
+        },
+        {
+            "label": "docker-compose-up-azfunc",
+            "type": "shell",
+            "command": "docker-compose up --build -d func-debug",
             "problemMatcher": []
         },
         {

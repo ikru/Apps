@@ -2,16 +2,16 @@
 # docker-compose up -d func-debug
 version: '3.8'
 services:
-  # func-debug:
-  #   build: 
-  #     context: .
-  #     target: func-debug
-  #   container_name: func-debug
-  #   volumes:
-  #     - ./:/app    
-  #   ports:
-  #     - "7081:7081"
-  #   tty: true
+  func-debug:
+    build: 
+      context: .
+      target: func-debug
+    container_name: func-debug
+    volumes:
+      - ./:/app    
+    ports:
+      - "7081:7081"
+    tty: true
   spfx-debug:
     build: 
       context: .
