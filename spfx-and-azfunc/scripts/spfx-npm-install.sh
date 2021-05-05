@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker-compose exec "spfx-debug" bash -c "npm install"
+docker-compose exec "spfx-debug" bash -c "npm install --ignore-optional"
