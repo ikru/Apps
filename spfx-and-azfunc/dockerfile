@@ -23,8 +23,12 @@ FROM node:14.15 as spfx-debug
 RUN npm install gulp --global
 RUN npm install yo --global
 RUN npm install @microsoft/generator-sharepoint --global --unsafe-perm=true --allow-root
-# RUN npm install node-sass@4.14.1 --global --unsafe-perm=true --allow-root
+WORKDIR /npm
+# This is to avoid problems with symlinks on windows
+RUN apt-get update && apt-get -y install rsync
+COPY ./spfx/package.json ./
+RUN npm install --ignore-optional
 WORKDIR /app/spfx
-# COPY ./spfx/package.json ./
-# RUN npm install --ignore-optional
+
+# RUN rsync --archive --verbose --copy-links ./node_modules/ /app/spfx/node_modules/
 # COPY ./ /app/
