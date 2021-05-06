@@ -47,18 +47,6 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "spfx-npm-install",
-            "type": "shell",
-            "command": "./scripts/spfx-npm-install.sh",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "spfx-sync-node-modules",
-            "type": "shell",
-            "command": "./scripts/spfx-sync-node-modules.sh",
-            "problemMatcher": "$msCompile"
-        },
-        {
             "label": "spfx-gulp-serve",
             "type": "shell",
             "command": "./scripts/spfx-gulp-serve.sh",
